@@ -1,0 +1,5 @@
+dependencies:
+  espressif/esp_tinyusb: ^1.4.2
+  idf: ^5.0
+  espressif/led_strip: ^3.0.1
+  # espressif/usb_device_uac: ^1.2.0

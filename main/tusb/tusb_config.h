@@ -103,9 +103,11 @@
 #define CFG_TUD_MSC               1
 #define CFG_TUD_MSC_BUFSIZE         64
 
-#define CFG_TUD_CDC                 0
+#define CFG_TUD_CDC                 1
 #define CFG_TUD_CDC_RX_BUFSIZE    64
 #define CFG_TUD_CDC_TX_BUFSIZE    64
+
+#define CFG_TUD_AUDIO            1
  
  #ifdef __cplusplus
  }

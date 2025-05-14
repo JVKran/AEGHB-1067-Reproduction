@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "tusb_msc_storage.h": "c"
+    }
+}

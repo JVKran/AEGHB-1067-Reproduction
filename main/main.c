@@ -9,6 +9,8 @@
  #include "tinyusb.h"
  #include "tusb_msc_storage.h"
  #include "esp_private/usb_phy.h"
+ #include "usb_device_uac.h"
+ #include "usb_descriptors.h"
  
  #if SOC_USB_SERIAL_JTAG_SUPPORTED
  #if !CONFIG_ESP_CONSOLE_SECONDARY_NONE
@@ -102,6 +104,13 @@ static void tusb_device_task(void *arg)
         tud_task();
     }
 }
+
+static esp_err_t uac_device_output_cb(uint8_t *buf, size_t len, void *arg)
+{
+    // size_t bytes_written = 0;
+    // bsp_extra_i2s_write(buf, len, &bytes_written, 0);
+    return ESP_OK;
+}
  
  void app_main(void)
  {
@@ -122,6 +131,14 @@ static void tusb_device_task(void *arg)
      _mount();
  
      ESP_LOGI(TAG, "USB MSC initialization");
+
+     uac_device_config_t config = {
+        .skip_tinyusb_init = true,
+        .output_cb = uac_device_output_cb,
+        .cb_ctx = NULL,
+        .spk_itf_num = ITF_NUM_AUDIO_STREAMING_SPK,
+    };
+    uac_device_init(&config);
 
     usb_phy_init();
     // tud_init(0);

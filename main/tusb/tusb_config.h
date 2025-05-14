@@ -31,8 +31,8 @@
  #endif
  
  #include "sdkconfig.h"
-//  #include "uac_descriptors.h"
-//  #include "tusb_config_uac.h"
+ #include "uac_descriptors.h"
+ #include "tusb_config_uac.h"
  
  //--------------------------------------------------------------------+
  // Board Specific Configuration

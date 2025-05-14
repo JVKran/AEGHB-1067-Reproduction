@@ -1,7 +1,7 @@
 idf_component_register(SRCS "main.c"
                         INCLUDE_DIRS ".")
 
-# idf_component_get_property(UAC_PATH espressif__usb_device_uac COMPONENT_DIR)
+idf_component_get_property(UAC_PATH espressif__usb_device_uac COMPONENT_DIR)
 
 # Determine whether tinyusb is fetched from component registry or from local path
 idf_build_get_property(build_components BUILD_COMPONENTS)
